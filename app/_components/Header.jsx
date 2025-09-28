@@ -1,3 +1,4 @@
+// ============ HEADER.JS ============
 "use client";
 
 import { motion } from "framer-motion";
@@ -17,23 +18,25 @@ export default function Header() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="sticky top-4 z-50 mx-auto w-fit"
+      className="sticky z-50 mx-auto top-4 w-fit"
     >
-      <nav className="bg-white/10 backdrop-blur-xl rounded-full px-6 py-3 shadow-2xl">
+      <nav className="px-8 py-4 rounded-2xl shadow-purple-glow glass-effect">
         <div className="flex space-x-6 md:space-x-8">
           {navItems.map((item, index) => (
             <motion.div
               key={index}
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="flex flex-col items-center cursor-pointer group relative"
+              className="relative flex flex-col items-center cursor-pointer group"
             >
               <Link
                 href={item.href}
-                className="flex flex-row gap-5 items-center"
+                className="flex flex-row items-center gap-3 transition-colors duration-300 text-secondary hover:text-secondary-hover"
               >
-                <item.icon className="w-6 h-6 md:w-7 md:h-7 text-gray-300 group-hover:text-accent transition-colors" />
-                <span className="group-hover:text-accent">{item.label}</span>
+                <item.icon className="w-6 h-6 md:w-7 md:h-7" />
+                <span className="hidden font-medium sm:block">
+                  {item.label}
+                </span>
               </Link>
             </motion.div>
           ))}
