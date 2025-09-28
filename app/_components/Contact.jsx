@@ -17,7 +17,7 @@ import {
   CheckCircle,
   AlertCircle
 } from "lucide-react";
-import { RiUser2Line, RiUser3Line, RiUser4Line } from "react-icons/ri";
+import { RiUser2Line, RiUser3Line, RiUser4Line , RiWhatsappLine } from "react-icons/ri";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -58,6 +58,14 @@ export default function Contact() {
       value: "mahdykazemyo1i2@gmail",
       description: "Send me an email anytime",
       href: "mailto:mahdykazemyo1i2@gmail",
+      color: "text-primary"
+    },
+    {
+      icon: RiWhatsappLine,
+      title: "Whatsapp",
+      value: "09393591452",
+      description: "Send me an Message anytime",
+      href: "wa.me/+989393591452",
       color: "text-primary"
     },
     {
