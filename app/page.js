@@ -5,7 +5,7 @@ export default async function Home() {
   return (
     <>
       <Header />
-      <main className="bg-background">
+      <main className="">
         <Hero />
       </main>
     </>

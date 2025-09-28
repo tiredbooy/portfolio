@@ -56,7 +56,7 @@ export default function Projects() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="text-4xl font-bold mb-16 text-center bg-clip-text text-transparent bg-gradient-to-r from-white to-accent"
+        className="text-4xl font-bold mb-16 text-center bg-clip-text text-transparent bg-linear-to-r from-white to-accent"
       >
         Projects
       </motion.h2>
@@ -91,7 +91,7 @@ export default function Projects() {
                 height={200}
                 className="rounded-t-2xl object-cover"
               />
-              <div className="p-6 flex-grow">
+              <div className="p-6 grow">
                 <h3 className="text-2xl font-semibold mb-3">{project.title}</h3>
                 <p className="text-gray-300 mb-4">{project.description}</p>
                 <div className="flex flex-wrap gap-2">

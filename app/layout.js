@@ -5,7 +5,7 @@ import { dir } from "i18next";
 
 // Configure fonts
 const vazirmatn = Vazirmatn({ subsets: ["arabic"], weight: ["400", "700"] });
-const inter = Inter({ subsets: ["latin"], weight: ["400", "700"] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: {
@@ -21,9 +21,9 @@ export default function Layout({ children }) {
   const direction = dir(language);
 
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="">
       <body
-        className={`${inter.className}`}
+        className={`${inter.className} bg-gradient-to-bl from-surface via-background to-secondary-light`}
       >
         {children}
       </body>

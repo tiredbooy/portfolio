@@ -45,9 +45,9 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="flex items-center w-screen min-h-screen overflow-hidden bg-red-500 section"
+      className="flex items-center min-h-screen overflow-hidden"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-gradient-start to-gradient-end" />
+      <div className="absolute inset-0 bg-linear-to-br from-gradient-start to-gradient-end" />
       {init && (
         <Particles
           id="tsparticles"
@@ -67,7 +67,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-5xl font-extrabold text-transparent md:text-7xl bg-clip-text bg-gradient-to-r from-accent to-white"
+            className="text-5xl font-extrabold text-transparent md:text-7xl bg-clip-text bg-linear-to-r from-accent to-white"
           >
             Mahdi Kazemi
           </motion.h1>
