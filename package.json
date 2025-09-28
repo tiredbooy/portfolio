@@ -3,21 +3,43 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
-    "start": "next start",
+    "dev": " next dev --turbopack",
+    "build": "i18nexus pull && next build --turbopack",
+    "start": "i18nexus pull && next start",
     "lint": "eslint"
   },
   "dependencies": {
+    "@studio-freight/lenis": "^1.0.42",
+    "@tsparticles/preset-stars": "^3.2.0",
+    "@tsparticles/react": "^3.0.0",
+    "framer-motion": "^12.23.22",
+    "i18next": "^25.5.2",
+    "i18next-browser-languagedetector": "^8.2.0",
+    "i18next-http-backend": "^3.0.2",
+    "i18next-resources-to-backend": "^1.2.1",
+    "lucide-react": "^0.544.0",
+    "material-symbols": "^0.36.1",
+    "next": "15.5.4",
+    "next-i18n-router": "^5.5.4",
+    "next-i18next": "^15.4.2",
+    "next-themes": "^0.4.6",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "next": "15.5.4"
+    "react-i18next": "^16.0.0",
+    "react-icons": "^5.5.0",
+    "react-parallax-tilt": "^1.7.309",
+    "swiper": "^12.0.2",
+    "tsparticles": "^3.9.1",
+    "typewriter-effect": "^2.22.0"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
+    "autoprefixer": "^10.4.21",
     "eslint": "^9",
     "eslint-config-next": "15.5.4",
-    "@eslint/eslintrc": "^3"
+    "i18nexus-cli": "^3.8.2",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.13"
   }
 }
