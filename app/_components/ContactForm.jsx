@@ -25,6 +25,7 @@ function ContactForm() {
           </div>
 
           <form name="contact" method="POST" netlify className="space-y-6">
+            <input type="hidden" name="form-name" value="contact" />
             {/* Name Input */}
             <div className="relative">
               <label className="block mb-2 text-sm font-medium text-text-secondary">
