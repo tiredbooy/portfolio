@@ -15,7 +15,7 @@ import {
   RiReactjsLine,
 } from "react-icons/ri";
 import { SiTypescript } from "react-icons/si";
-import type { IOptions, RecursivePartial } from "tsparticles-engine";
+import type { ISourceOptions } from "@tsparticles/engine";
 import Typewriter from "typewriter-effect";
 
 type SocialBtns = {
@@ -45,29 +45,15 @@ export default function Hero() {
     });
   }, []);
 
-  const particlesOptions: RecursivePartial<IOptions> = {
+  const particlesOptions: ISourceOptions = {
     preset: "stars",
-    background: {
-      color: {
-        value: "transparent",
-      },
-    },
+    background: { color: { value: "transparent" } },
     particles: {
-      color: {
-        value: ["#60a5fa", "#a78bfa", "#22d3ee"],
-      },
-      opacity: {
-        value: { min: 0.1, max: 0.8 },
-      },
-      number: {
-        value: 80,
-      },
-      size: {
-        value: { min: 0.5, max: 2 },
-      },
-      move: {
-        speed: 0.5,
-      },
+      color: { value: ["#60a5fa", "#a78bfa", "#22d3ee"] },
+      opacity: { value: { min: 0.1, max: 0.8 } },
+      number: { value: 80 },
+      size: { value: { min: 0.5, max: 2 } },
+      move: { speed: 0.5 },
     },
   };
 

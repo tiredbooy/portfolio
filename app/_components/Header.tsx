@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Briefcase, Code, Home, Mail } from "lucide-react";
+import { FaHome, FaCode, FaBriefcase, FaEnvelope } from "react-icons/fa";
 import Link from "next/link";
 import { FC } from "react";
 
@@ -12,10 +12,10 @@ type Nav = {
 };
 
 const navItems: Nav[] = [
-  { icon: Home, label: "Home", href: "#hero" },
-  { icon: Code, label: "Skills", href: "#skills" },
-  { icon: Briefcase, label: "Projects", href: "#projects" },
-  { icon: Mail, label: "Contact", href: "#contact" },
+  { icon: FaHome, label: "Home", href: "#hero" },
+  { icon: FaCode, label: "Skills", href: "#skills" },
+  { icon: FaBriefcase, label: "Projects", href: "#projects" },
+  { icon: FaEnvelope, label: "Contact", href: "#contact" },
 ];
 
 const Header: FC = () => {
@@ -31,7 +31,7 @@ const Header: FC = () => {
           {navItems?.map((item, index) => (
             <motion.div
               key={index}
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ scale: 1.2 }}
               transition={{ type: "spring", stiffness: 300 }}
               className="relative flex flex-col items-center cursor-pointer group"
             >
