@@ -239,38 +239,6 @@ const Contact: FC = () => {
           {/* Contact Form */}
           <ContactForm />
         </div>
-
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-16 text-center"
-        >
-          <div className="p-8 mx-auto glass-effect rounded-3xl">
-            <h3 className="mb-4 text-2xl font-bold text-text-primary">
-              Ready to Start Your Project?
-            </h3>
-            <p className="mb-6 text-text-secondary">
-              I&apos;m here to help bring your ideas to life with modern web
-              technologies and creative solutions.
-            </p>
-            <div className="flex flex-col justify-center gap-4 sm:flex-row">
-              <button className="px-6 py-3 font-semibold text-white transition-all rounded-full bg-primary hover:bg-primary-hover hover:scale-105 shadow-glow">
-                <Calendar className="inline w-5 h-5 mr-2" />
-                Schedule a Call
-              </button>
-              <a
-                href="mailto:mahdi.dev@example.com"
-                className="px-6 py-3 font-semibold transition-all rounded-full glass-effect hover:bg-surface-elevated hover:scale-105 text-text-primary"
-              >
-                <Mail className="inline w-5 h-5 mr-2" />
-                Quick Email
-              </a>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

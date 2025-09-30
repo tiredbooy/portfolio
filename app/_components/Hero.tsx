@@ -6,16 +6,33 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   RiGithubLine as Github,
   RiLinkedinBoxLine as Linkedin,
   RiMailAddLine as Mail,
   RiNextjsLine,
-  RiReactjsLine
+  RiReactjsLine,
 } from "react-icons/ri";
+import { SiTypescript } from "react-icons/si";
 import type { IOptions, RecursivePartial } from "tsparticles-engine";
 import Typewriter from "typewriter-effect";
+
+type SocialBtns = {
+  icon: React.ElementType;
+  label: string;
+  href?: string;
+};
+
+const socialBtns: SocialBtns[] = [
+  { icon: Github, label: "GitHub", href: "https://github.com/tiredbooy" },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/tiredboy",
+  },
+  { icon: Mail, label: "Email", href: "mailto:mahdykazemyo1i2@gmail.com" },
+];
 
 export default function Hero() {
   const [init, setInit] = useState(false);
@@ -128,12 +145,16 @@ export default function Hero() {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start"
           >
-            <button className="px-8 py-4 font-semibold text-white transition-all duration-300 rounded-full bg-primary hover:bg-primary-hover shadow-glow hover:shadow-xl hover:scale-105">
-              View My Work
-            </button>
-            <button className="px-8 py-4 font-semibold transition-all duration-300 rounded-full glass-effect text-text-primary hover:bg-surface-elevated hover:scale-105">
-              Get In Touch
-            </button>
+            <a href="#projects">
+              <button className="px-8 cursor-pointer py-4 font-semibold text-text-inverse transition-all duration-300 rounded-full bg-primary hover:bg-primary-hover shadow-glow hover:shadow-xl hover:scale-105">
+                View My Work
+              </button>
+            </a>
+            <a href="#contact">
+              <button className="px-8 cursor-pointer py-4 font-semibold transition-all duration-300 rounded-full glass-effect text-text-primary hover:bg-surface-elevated hover:scale-105">
+                Get In Touch
+              </button>
+            </a>
           </motion.div>
 
           {/* Social Links */}
@@ -143,13 +164,10 @@ export default function Hero() {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="flex justify-center gap-6 lg:justify-start"
           >
-            {[
-              { icon: Github, label: "GitHub" },
-              { icon: Linkedin, label: "LinkedIn" },
-              { icon: Mail, label: "Email" },
-            ].map((social, index) => (
+            {socialBtns.map((social, index) => (
               <motion.a
                 key={social.label}
+                href={social.href}
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="p-3 transition-all duration-300 rounded-full glass-effect hover:bg-primary/20 hover:shadow-glow"
@@ -172,7 +190,7 @@ export default function Hero() {
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-0 border-2 border-dashed rounded-full border-primary/30 animate-spin-slow"
+              className="absolute inset-0 border-2 border-dashed rounded-full border-secondary/30 animate-spin-slow"
               style={{
                 width: "120%",
                 height: "120%",
@@ -201,6 +219,16 @@ export default function Hero() {
             >
               <span className="text-2xl">
                 <RiNextjsLine className="text-secondary-light" />
+              </span>
+            </motion.div>
+
+            <motion.div
+              animate={{ y: [-10, 10, -10] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute p-3 rounded-full -bottom-4 -right-4 glass-effect"
+            >
+              <span className="text-2xl">
+                <SiTypescript className="text-primary" />
               </span>
             </motion.div>
 
