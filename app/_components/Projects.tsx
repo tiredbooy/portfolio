@@ -14,9 +14,10 @@ import {
   ExternalLink,
   Eye,
   Github,
-  Star
+  Star,
 } from "lucide-react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
+import Link from "next/link";
 import { useRef, useState } from "react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
@@ -30,6 +31,21 @@ import {
 } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
+type Projects = {
+  id: number;
+  title: string;
+  description: string;
+  fullDescription: string;
+  image?: string | StaticImageData;
+  github?: string;
+  category: string;
+  featured: boolean;
+  status: "Completed" | "In Progress" | "Planned"; // union for stricter typing
+  year: number; // better as number (e.g. 2025 instead of "2025")
+  stats: { stars: number; views: number };
+  tags: string[];
+  highlights: string[];
+};
 
 const projects = [
   {
@@ -153,12 +169,12 @@ const projects = [
   },
 ];
 
-const categories = [
+const categories: string[] = [
   "All",
   "Web Application",
   "Desktop Application",
   "E-commerce",
-  "Food & Beverage"
+  "Food & Beverage",
 ];
 
 export default function Projects() {
@@ -369,6 +385,7 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
+          className="w-full"
         >
           <Swiper
             ref={swiperRef}
@@ -403,7 +420,7 @@ export default function Projects() {
               1024: { slidesPerView: 2 },
               1280: { slidesPerView: 2.5 },
             }}
-            className="w-full pb-16"
+            className="w-full h-fit pb-16"
           >
             {filteredProjects.map((project, index) => (
               <SwiperSlide key={project.id} className="w-full">
@@ -563,9 +580,11 @@ export default function Projects() {
           <p className="mb-6 text-lg text-text-secondary">
             Interested in working together on your next project?
           </p>
-          <button className="px-8 py-4 font-semibold text-white transition-all duration-300 rounded-full bg-gradient-to-r from-primary to-secondary hover:from-primary-hover hover:to-secondary-hover shadow-glow hover:shadow-xl hover:scale-105">
-            Let's Create Something Amazing
-          </button>
+          <a href="#contact">
+            <button className="px-8 py-4 font-semibold text-white transition-all duration-300 rounded-full bg-gradient-to-r from-primary to-secondary hover:from-primary-hover hover:to-secondary-hover shadow-glow hover:shadow-xl hover:scale-105">
+              Let&apos;s Create Something Amazing
+            </button>
+          </a>
         </motion.div>
       </div>
 

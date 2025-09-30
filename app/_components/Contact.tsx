@@ -1,122 +1,101 @@
 "use client";
-
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Send, 
-  User, 
-  MessageSquare,
-  Github,
-  Linkedin,
-  Twitter,
+import {
   Calendar,
   Clock,
-  CheckCircle,
-  AlertCircle
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  MessageSquare,
+  Phone,
+  Twitter,
 } from "lucide-react";
-import { RiUser2Line, RiUser3Line, RiUser4Line , RiWhatsappLine } from "react-icons/ri";
+import { RiWhatsappLine } from "react-icons/ri";
 import ContactForm from "./ContactForm";
+import { FC } from "react";
 
-export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: ""
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null);
+type ContactInfo = {
+  icon: React.ElementType;
+  title: string | number;
+  value: string | number;
+  description: string;
+  href?: string;
+  color: string;
+};
 
-  const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+type SocialLink = {
+  icon: React.ElementType;
+  name: string;
+  href?: string;
+  color: string;
+};
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus("success");
-      setFormData({ name: "", email: "", subject: "", message: "" });
-      
-      // Reset status after 3 seconds
-      setTimeout(() => setSubmitStatus(null), 3000);
-    }, 2000);
-  };
+const contactInfo: ContactInfo[] = [
+  {
+    icon: Mail,
+    title: "Email",
+    value: "mahdykazemyo1i2@gmail",
+    description: "Send me an email anytime",
+    href: "mailto:mahdykazemyo1i2@gmail",
+    color: "text-primary",
+  },
+  {
+    icon: RiWhatsappLine,
+    title: "Whatsapp",
+    value: "09393591452",
+    description: "Send me an Message anytime",
+    href: "https://api.whatsapp.com/send/?phone=%2B989393591452&text&type=phone_number&app_absent=0",
+    color: "text-primary",
+  },
+  {
+    icon: Phone,
+    title: "Phone",
+    value: "+98 9393591452",
+    description: "Call me for urgent inquiries",
+    href: "tel:+0989393591452",
+    color: "text-secondary",
+  },
+  {
+    icon: MapPin,
+    title: "Location",
+    value: "IRAN, Tehran",
+    description: "Available for remote work",
+    color: "text-accent",
+  },
+  {
+    icon: Clock,
+    title: "Response Time",
+    value: "Within 24 hours",
+    description: "I'll get back to you soon",
+    color: "text-success",
+  },
+];
 
-  const contactInfo = [
-    {
-      icon: Mail,
-      title: "Email",
-      value: "mahdykazemyo1i2@gmail",
-      description: "Send me an email anytime",
-      href: "mailto:mahdykazemyo1i2@gmail",
-      color: "text-primary"
-    },
-    {
-      icon: RiWhatsappLine,
-      title: "Whatsapp",
-      value: "09393591452",
-      description: "Send me an Message anytime",
-      href: "https://api.whatsapp.com/send/?phone=%2B989393591452&text&type=phone_number&app_absent=0",
-      color: "text-primary"
-    },
-    {
-      icon: Phone,
-      title: "Phone",
-      value: "+98 9393591452",
-      description: "Call me for urgent inquiries",
-      href: "tel:+0989393591452",
-      color: "text-secondary"
-    },
-    {
-      icon: MapPin,
-      title: "Location",
-      value: "IRAN, Tehran",
-      description: "Available for remote work",
-      color: "text-accent"
-    },
-    {
-      icon: Clock,
-      title: "Response Time",
-      value: "Within 24 hours",
-      description: "I'll get back to you soon",
-      color: "text-success"
-    }
-  ];
+const socialLinks: SocialLink[] = [
+  {
+    icon: Github,
+    name: "GitHub",
+    href: "https://github.com/tiredbooy",
+    color: "hover:text-text-primary",
+  },
+  {
+    icon: Linkedin,
+    name: "LinkedIn",
+    href: "https://linkedin.com/in/mahdikazemi",
+    color: "hover:text-primary",
+  },
+  {
+    icon: Twitter,
+    name: "Twitter",
+    href: "https://twitter.com/mahdikazemi",
+    color: "hover:text-accent",
+  },
+];
 
-  const socialLinks = [
-    {
-      icon: Github,
-      name: "GitHub",
-      href: "https://github.com/tiredbooy",
-      color: "hover:text-text-primary"
-    },
-    {
-      icon: Linkedin,
-      name: "LinkedIn", 
-      href: "https://linkedin.com/in/mahdikazemi",
-      color: "hover:text-primary"
-    },
-    {
-      icon: Twitter,
-      name: "Twitter",
-      href: "https://twitter.com/mahdikazemi",
-      color: "hover:text-accent"
-    }
-  ];
-
+const Contact: FC = () => {
   return (
     <section id="contact" className="relative px-6 py-20 overflow-hidden">
-
       <div className="container relative z-10 mx-auto">
         {/* Header */}
         <motion.div
@@ -127,10 +106,11 @@ export default function Contact() {
           className="mb-16 text-center"
         >
           <h2 className="mb-6 text-5xl font-bold text-gradient">
-            Let's Work Together
+            Let&apos;s Work Together
           </h2>
           <p className="mx-auto mb-8 text-xl text-text-secondary">
-            Have a project in mind? I'd love to hear about it. Send me a message and let's create something amazing together.
+            Have a project in mind? I&apos;d love to hear about it. Send me a
+            message and let&apos;s create something amazing together.
           </p>
         </motion.div>
 
@@ -156,11 +136,13 @@ export default function Contact() {
                   className="mx-auto w-fit md:w-full group"
                 >
                   {info.href ? (
-                    <a 
+                    <a
                       href={info.href}
                       className="flex items-center gap-6 p-6 transition-all duration-300 cursor-pointer glass-effect rounded-2xl hover:bg-surface-elevated"
                     >
-                      <div className={`w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center group-hover:scale-110 transition-transform`}>
+                      <div
+                        className={`w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center group-hover:scale-110 transition-transform`}
+                      >
                         <info.icon className={`w-6 h-6 ${info.color}`} />
                       </div>
                       <div>
@@ -177,7 +159,9 @@ export default function Contact() {
                     </a>
                   ) : (
                     <div className="flex items-center gap-6 p-6 mx-auto glass-effect rounded-2xl">
-                      <div className={`w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center`}>
+                      <div
+                        className={`w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center`}
+                      >
                         <info.icon className={`w-6 h-6 ${info.color}`} />
                       </div>
                       <div>
@@ -239,13 +223,15 @@ export default function Contact() {
             >
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-3 h-3 rounded-full bg-success animate-pulse"></div>
-                <h3 className="text-lg font-semibold text-success">Available for Work</h3>
+                <h3 className="text-lg font-semibold text-success">
+                  Available for Work
+                </h3>
               </div>
               <p className="mb-2 text-text-secondary">
                 Currently accepting new projects and collaborations
               </p>
               <p className="text-sm text-text-tertiary">
-                Let's discuss your ideas and bring them to life!
+                Let&apos;s discuss your ideas and bring them to life!
               </p>
             </motion.div>
           </motion.div>
@@ -267,7 +253,8 @@ export default function Contact() {
               Ready to Start Your Project?
             </h3>
             <p className="mb-6 text-text-secondary">
-              I'm here to help bring your ideas to life with modern web technologies and creative solutions.
+              I&apos;m here to help bring your ideas to life with modern web
+              technologies and creative solutions.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <button className="px-6 py-3 font-semibold text-white transition-all rounded-full bg-primary hover:bg-primary-hover hover:scale-105 shadow-glow">
@@ -287,4 +274,6 @@ export default function Contact() {
       </div>
     </section>
   );
-}
+};
+
+export default Contact;

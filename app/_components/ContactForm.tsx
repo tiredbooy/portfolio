@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import { Mail, Send } from "lucide-react";
+import { FC } from "react";
 import { RiUser3Line } from "react-icons/ri";
 import SubmitButton from "./SubmitButton";
-import { sendMail } from "../_lib/action";
 
-function ContactForm() {
+const ContactForm : FC = () => {
   return (
     <motion.div
       initial={{ opacity: 0, x: 50 }}
@@ -24,7 +24,12 @@ function ContactForm() {
             </h3>
           </div>
 
-          <form name="contact" method="POST" netlify className="space-y-6">
+          <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            className="space-y-6"
+          >
             <input type="hidden" name="form-name" value="contact" />
             {/* Name Input */}
             <div className="relative">
@@ -99,6 +104,6 @@ function ContactForm() {
       </div>
     </motion.div>
   );
-}
+};
 
 export default ContactForm;

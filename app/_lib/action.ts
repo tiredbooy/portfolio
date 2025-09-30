@@ -1,6 +1,6 @@
 "use server";
 
-export async function sendMail(formData) {
+export async function sendMail(formData: FormData) {
   const { MailerSend, EmailParams, Sender, Recipient } = await import(
     "mailersend"
   );

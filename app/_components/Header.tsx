@@ -1,18 +1,24 @@
-// ============ HEADER.JS ============
 "use client";
 
 import { motion } from "framer-motion";
-import { Home, Code, Briefcase, Mail } from "lucide-react";
+import { Briefcase, Code, Home, Mail } from "lucide-react";
 import Link from "next/link";
+import { FC } from "react";
 
-const navItems = [
+type Nav = {
+  icon: React.ElementType;
+  label: string;
+  href: string;
+};
+
+const navItems: Nav[] = [
   { icon: Home, label: "Home", href: "#hero" },
   { icon: Code, label: "Skills", href: "#skills" },
   { icon: Briefcase, label: "Projects", href: "#projects" },
   { icon: Mail, label: "Contact", href: "#contact" },
 ];
 
-export default function Header() {
+const Header: FC = () => {
   return (
     <motion.header
       initial={{ y: -100 }}
@@ -22,7 +28,7 @@ export default function Header() {
     >
       <nav className="px-8 py-4 rounded-2xl shadow-purple-glow glass-effect">
         <div className="flex space-x-6 md:space-x-8">
-          {navItems.map((item, index) => (
+          {navItems?.map((item, index) => (
             <motion.div
               key={index}
               whileHover={{ scale: 1.1 }}
@@ -44,4 +50,6 @@ export default function Header() {
       </nav>
     </motion.header>
   );
-}
+};
+
+export default Header;

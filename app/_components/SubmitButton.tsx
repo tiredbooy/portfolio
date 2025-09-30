@@ -2,8 +2,14 @@
 
 import { motion } from "framer-motion";
 import { useFormStatus } from "react-dom";
+import { ReactNode } from "react";
 
-function SubmitButton({ pendingLabel, children }) {
+type SubmitProps = {
+  pendingLabel: string | undefined | ReactNode;
+  children: ReactNode;
+};
+
+function SubmitButton({ pendingLabel, children }: SubmitProps) {
   const { pending } = useFormStatus();
 
   return (

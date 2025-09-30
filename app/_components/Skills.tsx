@@ -3,10 +3,17 @@
 import { motion } from "framer-motion";
 import { Database, Globe } from "lucide-react";
 import { RiNextjsLine, RiReactjsLine, RiTailwindCssLine } from "react-icons/ri";
-import { SiElectron, SiRedux } from "react-icons/si";
+import { SiElectron, SiRedux, SiTypescript } from "react-icons/si";
+import { FC } from "react";
 import Tilt from "react-parallax-tilt";
 
-const skills = [
+type Skill = {
+  name: string;
+  icon: React.ElementType;
+  description: string | undefined;
+};
+
+const skills: Skill[] = [
   { name: "React", icon: RiReactjsLine, description: "Building dynamic UIs" },
   {
     name: "Next.js",
@@ -26,9 +33,14 @@ const skills = [
     icon: SiElectron,
     description: "Building Desktop Apps",
   },
+  {
+    name: "TypeScript",
+    icon: SiTypescript,
+    description: "Safer, scalable JS",
+  },
 ];
 
-export default function Skills() {
+const Skills: FC = () => {
   return (
     <section id="skills" className="px-6 py-20">
       <div className="container max-w-6xl mx-auto">
@@ -76,4 +88,6 @@ export default function Skills() {
       </div>
     </section>
   );
-}
+};
+
+export default Skills;

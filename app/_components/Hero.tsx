@@ -1,14 +1,21 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Image from "next/image";
-import Typewriter from "typewriter-effect";
-import { useEffect, useState } from "react";
-import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { loadStarsPreset } from "@tsparticles/preset-stars";
 import Profile from "@/public/profile.jpg";
+import { loadStarsPreset } from "@tsparticles/preset-stars";
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
-import { RiGithubLine as Github, RiLinkedinBoxLine as Linkedin, RiMailAddLine as Mail, RiNextjsFill, RiNextjsLine, RiReactjsLine } from "react-icons/ri";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import {
+  RiGithubLine as Github,
+  RiLinkedinBoxLine as Linkedin,
+  RiMailAddLine as Mail,
+  RiNextjsLine,
+  RiReactjsLine
+} from "react-icons/ri";
+import type { IOptions, RecursivePartial } from "tsparticles-engine";
+import Typewriter from "typewriter-effect";
 
 export default function Hero() {
   const [init, setInit] = useState(false);
@@ -21,7 +28,7 @@ export default function Hero() {
     });
   }, []);
 
-  const particlesOptions = {
+  const particlesOptions: RecursivePartial<IOptions> = {
     preset: "stars",
     background: {
       color: {
@@ -30,7 +37,7 @@ export default function Hero() {
     },
     particles: {
       color: {
-        value: ["#60a5fa", "#a78bfa", "#22d3ee"], // Use your color palette
+        value: ["#60a5fa", "#a78bfa", "#22d3ee"],
       },
       opacity: {
         value: { min: 0.1, max: 0.8 },
@@ -70,7 +77,6 @@ export default function Hero() {
           transition={{ duration: 1 }}
           className="py-12 space-y-8 text-center lg:text-left"
         >
-
           {/* Main Title */}
           <motion.h1
             initial={{ opacity: 0, y: 50 }}
@@ -92,7 +98,7 @@ export default function Hero() {
               options={{
                 strings: [
                   `FrontEnd Developer`,
-                  "Desktop App Developer 💻",              
+                  "Desktop App Developer 💻",
                   "Creative Problem Solver 💡",
                 ],
                 autoStart: true,
@@ -187,14 +193,15 @@ export default function Hero() {
               />
             </div>
 
-
             {/* Floating Elements */}
             <motion.div
               animate={{ y: [-10, 10, -10] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               className="absolute p-3 rounded-full -top-4 -right-4 glass-effect"
             >
-              <span className="text-2xl"><RiNextjsLine className="text-secondary-light" /></span>
+              <span className="text-2xl">
+                <RiNextjsLine className="text-secondary-light" />
+              </span>
             </motion.div>
 
             <motion.div
@@ -207,7 +214,9 @@ export default function Hero() {
               }}
               className="absolute p-3 rounded-full -bottom-4 -left-4 glass-effect"
             >
-              <span className="text-2xl"><RiReactjsLine className="text-accent" /></span>
+              <span className="text-2xl">
+                <RiReactjsLine className="text-accent" />
+              </span>
             </motion.div>
           </div>
         </motion.div>
