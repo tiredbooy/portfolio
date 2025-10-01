@@ -323,7 +323,9 @@ export default function Hero() {
 
               {/* Floating Elements */}
               <div
-                ref={(el) => (floatingRefs.current[0] = el)}
+                ref={(el) => {
+                  floatingRefs.current[0] = el;
+                }}
                 className="absolute p-2.5 rounded-full -top-3 -right-3 glass-effect xs:p-3 xs:-top-4 xs:-right-4"
               >
                 <span className="text-xl xs:text-2xl">
@@ -332,7 +334,9 @@ export default function Hero() {
               </div>
 
               <div
-                ref={(el) => (floatingRefs.current[1] = el)}
+                ref={(el) => {
+                  floatingRefs.current[1] = el;
+                }}
                 className="absolute p-2.5 rounded-full -bottom-3 -right-3 glass-effect xs:p-3 xs:-bottom-4 xs:-right-4"
               >
                 <span className="text-xl xs:text-2xl">
@@ -341,7 +345,9 @@ export default function Hero() {
               </div>
 
               <div
-                ref={(el) => (floatingRefs.current[2] = el)}
+                ref={(el) => {
+                  floatingRefs.current[2] = el;
+                }}
                 className="absolute p-2.5 rounded-full -bottom-3 -left-3 glass-effect xs:p-3 xs:-bottom-4 xs:-left-4"
               >
                 <span className="text-xl xs:text-2xl">

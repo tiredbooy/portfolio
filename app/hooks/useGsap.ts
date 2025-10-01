@@ -11,7 +11,7 @@ export const useGSAP = (
   callback: (context: gsap.Context) => void,
   dependencies: any[] = []
 ) => {
-  const contextRef = useRef<gsap.Context>();
+  const contextRef = useRef<gsap.Context | undefined>(undefined);
 
   // Use useLayoutEffect for DOM mutations, useEffect for others
   const useIsomorphicEffect =
