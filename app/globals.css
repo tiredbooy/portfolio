@@ -300,4 +300,60 @@ html {
       linear-gradient(135deg, var(--color-primary), var(--color-secondary))
         border-box;
   }
+
+  /* Add these animations to your globals.css file */
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-spin-slow {
+    animation: spin 20s linear infinite;
+  }
+
+  /* Optimize GSAP performance */
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  /* Prevent layout shifts during animations */
+  .skill-card,
+  .hero-text-content,
+  .project-card {
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    transform: translateZ(0);
+  }
+
+  /* GPU acceleration for smooth animations */
+  .glass-effect {
+    transform: translateZ(0);
+    will-change: transform, opacity;
+  }
+
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-smooth iframe {
+    pointer-events: none;
+  }
 }

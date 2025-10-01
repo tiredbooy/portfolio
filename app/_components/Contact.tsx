@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import {
-  Calendar,
   Clock,
   Github,
   Linkedin,
@@ -9,11 +8,11 @@ import {
   MapPin,
   MessageSquare,
   Phone,
-  Twitter,
+  Twitter
 } from "lucide-react";
+import { FC } from "react";
 import { RiWhatsappLine } from "react-icons/ri";
 import ContactForm from "./ContactForm";
-import { FC } from "react";
 
 type ContactInfo = {
   icon: React.ElementType;
