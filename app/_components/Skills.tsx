@@ -51,72 +51,92 @@ const Skills: FC = () => {
   useGSAP((context) => {
     if (!containerRef.current) return;
 
-    // Title animation - simple and smooth
+    // Create a main timeline that controls everything
+    const mainTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 80%",
+        toggleActions: "play reverse play reverse",
+      },
+    });
+
+    // Add title animation to main timeline - smooth fade and slide
     if (titleRef.current) {
-      gsap.fromTo(
+      mainTl.fromTo(
         titleRef.current,
         {
           opacity: 0,
-          y: 30,
+          y: 50,
+          filter: "blur(5px)",
         },
         {
           opacity: 1,
           y: 0,
-          duration: 0.6,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: titleRef.current,
-            start: "top 85%",
-            once: true,
-          },
+          filter: "blur(0px)",
+          duration: 0.5,
+          ease: "power3.out",
         }
       );
     }
 
-    // Skills cards animation - optimized batch animation
+    // Skills cards animation - enhanced with rotation for more dynamism
     const skillCards = gsap.utils.toArray(".skill-card");
-
-    gsap.fromTo(
+    mainTl.fromTo(
       skillCards,
       {
         opacity: 0,
-        y: 40,
-        scale: 0.9,
+        y: 80,
+        scale: 0.8,
+        rotation: 10,
+        filter: "blur(8px)",
       },
       {
         opacity: 1,
         y: 0,
         scale: 1,
-        duration: 1,
-        stagger: 0.08, // Faster stagger
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 80%",
-          once: true, // Only animate once
-        },
-      }
+        rotation: 0,
+        filter: "blur(0px)",
+        duration: .5,
+        stagger: 0.2,
+        ease: "power4.out",
+      },
+      "-=0.4" // Slight overlap with title for fluid transition
     );
 
-    // Icon pop animation
-    gsap.fromTo(
+    // Animate icons with matching stagger, bouncy entrance from below
+    mainTl.fromTo(
       ".skill-icon",
       {
-        scale: 0,
-        rotation: -180,
+        opacity: 0,
+        y: 30,
+        scale: 0.5,
       },
       {
+        opacity: 1,
+        y: 0,
         scale: 1,
-        rotation: 0,
-        duration: 0.6,
-        stagger: 0.08,
-        ease: "back.out(1.7)",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 80%",
-          once: true,
-        },
-      }
+        duration: 0.3,
+        stagger: 0.1,
+        ease: "back.out(1.4)",
+      },
+      "-=1.0" // Overlap with cards for cohesive pop
+    );
+
+    // Animate text elements with subtle fade-slide for polish
+    mainTl.fromTo(
+      ".skill-card h3, .skill-card p",
+      {
+        opacity: 0,
+        y: 20,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.3,
+        stagger: 0.1,
+        ease: "power2.out",
+      },
+      "-=0.8" // Start during icon animation
     );
   }, []);
 
