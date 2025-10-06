@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { FaHome, FaCode, FaBriefcase, FaEnvelope } from "react-icons/fa";
 import Link from "next/link";
 import { FC } from "react";
+import { TbFileCv } from "react-icons/tb";
 
 type Nav = {
   icon: React.ElementType;
@@ -16,6 +17,7 @@ const navItems: Nav[] = [
   { icon: FaCode, label: "Skills", href: "#skills" },
   { icon: FaBriefcase, label: "Projects", href: "#projects" },
   { icon: FaEnvelope, label: "Contact", href: "#contact" },
+  { icon: TbFileCv, label: "Resume", href: "/resume" },
 ];
 
 const Header: FC = () => {
@@ -23,7 +25,7 @@ const Header: FC = () => {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.3 }}
       className="fixed z-50  md:mx-auto w-[65%] sm:w-1/2 md:w-fit bottom-2 left-1/2 -translate-x-1/2 md:top-4 md:bottom-auto"
     >
       <nav className="px-8 py-4 rounded-full shadow-purple-glow bg-gradient-to-bl from-white/10 via-surface/20 to-background/20 backdrop-blur-xl md:px-8 md:py-4 md:rounded-2xl">
@@ -36,7 +38,7 @@ const Header: FC = () => {
               className="relative flex flex-col items-center cursor-pointer group"
             >
               <Link
-                href={item.href}
+                href={item?.href}
                 className="flex flex-row items-center gap-2 transition-colors duration-300 text-secondary hover:text-secondary-hover md:gap-3"
               >
                 <item.icon className="w-6 h-6 md:w-7 md:h-7" />

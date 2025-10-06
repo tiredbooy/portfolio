@@ -19,6 +19,7 @@ import Typewriter from "typewriter-effect";
 import { useGSAP } from "@/app/hooks/useGsap";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -267,28 +268,28 @@ export default function Hero() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start">
-            <a href="#projects">
+            <Link href="#projects">
               <button className="px-6 cursor-pointer py-3 font-semibold text-text-inverse transition-all duration-300 rounded-full bg-primary hover:bg-primary-hover shadow-glow hover:shadow-xl hover:scale-105 sm:px-8 sm:py-4">
                 View My Work
               </button>
-            </a>
-            <a href="#contact">
+            </Link>
+            <Link href="/resume">
               <button className="px-6 cursor-pointer py-3 font-semibold transition-all duration-300 rounded-full glass-effect text-text-primary hover:bg-surface-elevated hover:scale-105 sm:px-8 sm:py-4">
-                Get In Touch
+                Check my Resume
               </button>
-            </a>
+            </Link>
           </div>
 
           {/* Social Links */}
           <div className="flex justify-center gap-4 lg:gap-6 lg:justify-start">
             {socialBtns.map((social) => (
-              <a
+              <Link
                 key={social.label}
                 href={social.href}
-                className="social-btn p-2.5 transition-all duration-300 rounded-full glass-effect hover:bg-primary/20 hover:shadow-glow hover:scale-110 lg:p-3"
+                className="social-btn p-2.5 transition-all duration-300 rounded-full glass-effect hover:border-primary hover:shadow-glow hover:scale-110 lg:p-3 group group-hover:shadow-gradient-neon-purple"
               >
-                <social.icon className="w-5 h-5 text-text-secondary hover:text-primary lg:w-6 lg:h-6" />
-              </a>
+                <social.icon className="w-5 h-5 text-text-secondary group-hover:text-primary lg:w-6 lg:h-6" />
+              </Link>
             ))}
           </div>
         </div>

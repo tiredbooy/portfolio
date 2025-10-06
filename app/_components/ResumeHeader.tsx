@@ -61,7 +61,7 @@ function ResumeHeader() {
             {/* Social Links */}
             <div className="flex gap-3 justify-center md:justify-end">
               <a
-                href="https://linkedin.com/in/yourprofile"
+                href="https://www.linkedin.com/in/tiredboy/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-surface border border-border flex items-center justify-center hover:border-primary hover:bg-surface-elevated transition-all hover:shadow-glow group"
