@@ -5,7 +5,7 @@ html {
 }
 
 @theme {
-  /* ============ LIGHT THEME ============ */
+  /* ============ LIGHT THEME (DEFAULT) ============ */
 
   /* Base Colors */
   --color-background: #fafafa;
@@ -59,6 +59,12 @@ html {
   --gradient-accent-end: #3b82f6;
   --gradient-warm-start: #f59e0b;
   --gradient-warm-end: #ef4444;
+  --gradient-hero-start: #ffffff;
+  --gradient-hero-end: #eff6ff;
+  --gradient-card-start: #ffffff;
+  --gradient-card-end: #f8fafc;
+  --gradient-secondary-start: #f8fafc;
+  --gradient-secondary-end: #eff6ff;
 
   /* Shadows */
   --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -69,6 +75,8 @@ html {
   --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1),
     0 8px 10px -6px rgb(0 0 0 / 0.1);
   --shadow-glow: 0 0 20px rgb(59 130 246 / 0.3);
+  --shadow-purple-glow: 0 0 20px rgb(139 92 246 / 0.3);
+  --shadow-cyan-glow: 0 0 20px rgb(6 182 212 / 0.3);
 
   /* Border Radius */
   --radius-xs: 0.125rem;
@@ -97,10 +105,15 @@ html {
   --glass-background: rgba(255, 255, 255, 0.8);
   --glass-border: rgba(255, 255, 255, 0.2);
   --backdrop-blur: 12px;
+
+  /* Neon Glow Gradients for Light Theme */
+  --gradient-neon-blue: linear-gradient(135deg, #3b82f6, #60a5fa);
+  --gradient-neon-purple: linear-gradient(135deg, #8b5cf6, #a78bfa);
+  --gradient-neon-cyan: linear-gradient(135deg, #06b6d4, #22d3ee);
 }
 
 /* ============ DARK THEME ============ */
-@media (prefers-color-scheme: dark) {
+.dark {
   @theme {
     /* Base Colors - Rich Dark with Purple Undertones */
     --color-background: #0a0a0f;
@@ -184,77 +197,6 @@ html {
   }
 }
 
-/* Manual dark mode class override */
-.dark {
-  @theme {
-    /* Same as dark media query above */
-    --color-background: #0a0a0f;
-    --color-surface: #111118;
-    --color-surface-elevated: #1a1a24;
-    --color-foreground: #f8fafc;
-    --color-muted: #94a3b8;
-    --color-subtle: #64748b;
-
-    --color-primary: #60a5fa;
-    --color-primary-hover: #3b82f6;
-    --color-primary-light: #1e3a8a;
-    --color-primary-dark: #93c5fd;
-
-    --color-secondary: #a78bfa;
-    --color-secondary-hover: #8b5cf6;
-    --color-secondary-light: #4c1d95;
-    --color-secondary-dark: #c4b5fd;
-
-    --color-accent: #22d3ee;
-    --color-accent-hover: #06b6d4;
-    --color-accent-light: #164e63;
-    --color-accent-dark: #67e8f9;
-
-    --color-success: #34d399;
-    --color-success-light: #064e3b;
-    --color-warning: #fbbf24;
-    --color-warning-light: #78350f;
-    --color-error: #f87171;
-    --color-error-light: #7f1d1d;
-
-    --color-border: #2d2d3a;
-    --color-border-light: #25252f;
-    --color-divider: #3f3f52;
-
-    --color-text-primary: #f8fafc;
-    --color-text-secondary: #cbd5e1;
-    --color-text-tertiary: #94a3b8;
-    --color-text-inverse: #0f172a;
-
-    --gradient-primary-start: #0a0a0f;
-    --gradient-primary-end: #1a1a2e;
-    --gradient-secondary-start: #1a1a2e;
-    --gradient-secondary-end: #16213e;
-    --gradient-accent-start: #0f0f23;
-    --gradient-accent-end: #1a1a3a;
-    --gradient-hero-start: #000000;
-    --gradient-hero-end: #1e1b4b;
-    --gradient-card-start: #111118;
-    --gradient-card-end: #1a1a2e;
-
-    --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.3);
-    --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.4);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4),
-      0 2px 4px -2px rgb(0 0 0 / 0.4);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4),
-      0 4px 6px -4px rgb(0 0 0 / 0.4);
-    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.5),
-      0 8px 10px -6px rgb(0 0 0 / 0.5);
-    --shadow-glow: 0 0 30px rgb(96 165 250 / 0.4);
-    --shadow-purple-glow: 0 0 30px rgb(139 92 246 / 0.3);
-    --shadow-cyan-glow: 0 0 30px rgb(34 211 238 / 0.3);
-
-    --glass-background: rgba(17, 17, 24, 0.8);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --backdrop-blur: 16px;
-  }
-}
-
 /* Custom utility classes for special effects */
 @layer utilities {
   .glass-effect {
@@ -301,8 +243,6 @@ html {
         border-box;
   }
 
-  /* Add these animations to your globals.css file */
-
   @keyframes spin {
     from {
       transform: rotate(0deg);
@@ -316,12 +256,10 @@ html {
     animation: spin 20s linear infinite;
   }
 
-  /* Optimize GSAP performance */
   .will-change-transform {
     will-change: transform;
   }
 
-  /* Prevent layout shifts during animations */
   .skill-card,
   .hero-text-content,
   .project-card {
@@ -330,7 +268,6 @@ html {
     transform: translateZ(0);
   }
 
-  /* GPU acceleration for smooth animations */
   .glass-effect {
     transform: translateZ(0);
     will-change: transform, opacity;
