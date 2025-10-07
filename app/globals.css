@@ -294,3 +294,15 @@ html {
     pointer-events: none;
   }
 }
+
+@media print {
+  body {
+    background: white !important;
+  }
+
+  * {
+    color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
