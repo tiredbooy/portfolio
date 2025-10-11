@@ -16,7 +16,7 @@ import {
 import { SiTypescript } from "react-icons/si";
 import type { ISourceOptions } from "@tsparticles/engine";
 import Typewriter from "typewriter-effect";
-import { useGSAP } from "@/app/hooks/useGsap";
+import { useGSAP } from "@/app/[locale]/hooks/useGsap";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";

@@ -5,7 +5,7 @@ import { RiNextjsLine, RiReactjsLine, RiTailwindCssLine } from "react-icons/ri";
 import { SiElectron, SiRedux, SiTypescript } from "react-icons/si";
 import { FC, useRef } from "react";
 import Tilt from "react-parallax-tilt";
-import { useGSAP } from "@/app/hooks/useGsap";
+import { useGSAP } from "@/app/[locale]/hooks/useGsap";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -96,7 +96,7 @@ const Skills: FC = () => {
         scale: 1,
         rotation: 0,
         filter: "blur(0px)",
-        duration: .5,
+        duration: 0.5,
         stagger: 0.2,
         ease: "power4.out",
       },

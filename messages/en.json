@@ -1,0 +1,20 @@
+{
+  "contact": {
+    "availableDes": "Currently accepting new projects and collaborations",
+    "availableHeader": "Available for Work",
+    "availableMainDes": "Let's discuss your ideas and bring them to life!",
+    "description": "Have project in mind? I'd Love to hear about it. Send me a message and let's create Something Amazing togheter",
+    "header": "Let's Work Togheter"
+  },
+  "main": {
+    "adDescription": "Crafting immersive digital experiences with passion and precision. I transform ideas into stunning, functional applications that users\n            love.",
+    "ctaMyResume": "Check my Resume",
+    "ctaMyWork": "View My Projects",
+    "name": "Mahdi Kazemi",
+    "role": "Front End Developer"
+  },
+  "resume": {
+    "education": "Computer Diploma",
+    "headerAbout": "About me"
+  }
+}

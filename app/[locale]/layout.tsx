@@ -1,6 +1,9 @@
 import { Vazirmatn, Inter } from "next/font/google";
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { routing } from "@/i18n/routing";
+import { notFound } from "next/navigation";
 
 // Configure fonts with optimal settings
 const vazirmatn = Vazirmatn({
@@ -102,15 +105,31 @@ export const viewport: Viewport = {
   ],
 };
 
-interface RootLayoutProps {
-  children: React.ReactNode;
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
 }
 
-export default function RootLayout({ children }: RootLayoutProps) {
+interface RootLayoutProps {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}
+
+export default async function RootLayout({
+  children,
+  params,
+}: RootLayoutProps) {
+  const { locale } = await params;
+
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
   return (
     <html
-      lang="en"
-      className={`${inter.className} light`}
+      lang={locale}
+      className={`${
+        locale === "en" ? inter.className : vazirmatn.className
+      } light`}
       suppressHydrationWarning
     >
       <head>
@@ -131,7 +150,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         className={`${inter.className} gradient-hero antialiased min-h-screen`}
         suppressHydrationWarning
       >
-        {children}
+        <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
     </html>
   );
