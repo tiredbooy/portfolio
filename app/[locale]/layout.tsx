@@ -4,6 +4,7 @@ import type { Metadata, Viewport } from "next";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
+import Script from "next/script";
 
 // Configure fonts with optimal settings
 const vazirmatn = Vazirmatn({
@@ -132,25 +133,23 @@ export default async function RootLayout({
       } light`}
       suppressHydrationWarning
     >
-      <head>
-        {/* Preconnect to external resources */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-
-        {/* Favicon and app icons */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/profile.jpg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/profile.jpg" />
-      </head>
       <body
         className={`${inter.className} gradient-hero antialiased min-h-screen`}
         suppressHydrationWarning
       >
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-FGS0BPRBZB"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-FGS0BPRBZB');
+        `}
+        </Script>
       </body>
     </html>
   );

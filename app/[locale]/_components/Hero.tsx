@@ -20,6 +20,7 @@ import { useGSAP } from "@/app/[locale]/hooks/useGsap";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -40,6 +41,7 @@ const socialBtns: SocialBtns[] = [
 ];
 
 export default function Hero() {
+  const t = useTranslations("main");
   const [init, setInit] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -239,7 +241,7 @@ export default function Hero() {
             ref={titleRef}
             className="text-3xl font-extrabold leading-tight text-gradient xs:text-4xl sm:text-5xl lg:text-7xl"
           >
-            Mahdi Kazemi
+            {t("name")}
           </h1>
 
           {/* Typewriter */}
@@ -261,9 +263,7 @@ export default function Hero() {
 
           {/* Description */}
           <p className="w-full text-base leading-relaxed text-text-tertiary lg:text-xl">
-            Crafting immersive digital experiences with passion and precision. I
-            transform ideas into stunning, functional applications that users
-            love.
+            {t('adDescription')}
           </p>
 
           {/* CTA Buttons */}
