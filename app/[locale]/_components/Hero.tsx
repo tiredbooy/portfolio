@@ -263,19 +263,19 @@ export default function Hero() {
 
           {/* Description */}
           <p className="w-full text-base leading-relaxed text-text-tertiary lg:text-xl">
-            {t('adDescription')}
+            {t('tagline')}
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start">
             <Link href="#projects">
               <button className="px-6 cursor-pointer py-3 font-semibold text-text-inverse transition-all duration-300 rounded-full bg-primary hover:bg-primary-hover shadow-glow hover:shadow-xl hover:scale-105 sm:px-8 sm:py-4">
-                View My Work
+                {t(`cta.viewProjects`)}
               </button>
             </Link>
             <Link href="/resume">
               <button className="px-6 cursor-pointer py-3 font-semibold transition-all duration-300 rounded-full glass-effect text-text-primary hover:bg-surface-elevated hover:scale-105 sm:px-8 sm:py-4">
-                Check my Resume
+                {t(`cta.checkResume`)}
               </button>
             </Link>
           </div>

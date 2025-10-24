@@ -1,20 +1,130 @@
 {
   "contact": {
-    "availableDes": "Currently accepting new projects and collaborations",
-    "availableHeader": "Available for Work",
-    "availableMainDes": "Let's discuss your ideas and bring them to life!",
-    "description": "Have project in mind? I'd Love to hear about it. Send me a message and let's create Something Amazing togheter",
-    "header": "Let's Work Togheter"
+    "heading": "Let's Work Together",
+    "description": "Have a project in mind? I'd love to hear about it. Send me a message and let's create something amazing together.",
+    "availability": {
+      "badge": "Available for Work",
+      "description": "Currently accepting new projects and collaborations",
+      "callToAction": "Let's discuss your ideas and bring them to life!"
+    }
   },
   "main": {
-    "adDescription": "Crafting immersive digital experiences with passion and precision. I transform ideas into stunning, functional applications that users\n            love.",
-    "ctaMyResume": "Check my Resume",
-    "ctaMyWork": "View My Projects",
     "name": "Mahdi Kazemi",
-    "role": "Front End Developer"
+    "role": "Front End Developer",
+    "tagline": "Crafting immersive digital experiences with passion and precision. I transform ideas into stunning, functional applications that users love.",
+    "cta": {
+      "viewProjects": "View My Projects",
+      "checkResume": "Check My Resume"
+    }
   },
   "resume": {
-    "education": "Computer Diploma",
-    "headerAbout": "About me"
+    "about": {
+      "heading": "About Me"
+    },
+    "education": {
+      "degree": "Computer Diploma"
+    }
+  },
+  "projects": {
+    "sectionTitle": "Featured Projects",
+    "sectionDescription": "Explore my latest work showcasing modern web technologies, creative problem-solving, and attention to detail",
+    "viewAll": "View All Projects",
+    "filters": {
+      "all": "All Projects",
+      "featured": "Featured",
+      "webApp": "Web Applications",
+      "desktop": "Desktop Apps",
+      "ecommerce": "E-commerce",
+      "foodBeverage": "Food & Beverage"
+    },
+    "status": {
+      "live": "Live",
+      "completed": "Completed",
+      "inProgress": "In Progress"
+    },
+    "badges": {
+      "featured": "FEATURED"
+    },
+    "ui": {
+      "more": "more",
+      "stars": "stars",
+      "views": "views",
+      "keyFeatures": "Key Features",
+      "techStack": "Tech Stack"
+    },
+    "actions": {
+      "viewDemo": "Demo",
+      "viewCode": "Code",
+      "clickToExplore": "Click to explore",
+      "liveDemo": "Live Demo",
+      "sourceCode": "Source Code"
+    },
+    "cta": {
+      "question": "Interested in working together on your next project?",
+      "button": "Let's Create Something Amazing"
+    },
+    "items": {
+      "gymAutomation": {
+        "title": "Gym Automation Desktop App",
+        "description": "A comprehensive desktop application that integrates with hardware systems for complete gym management. Features member tracking, equipment monitoring, and automated billing.",
+        "fullDescription": "This cutting-edge desktop application revolutionizes gym management by seamlessly integrating with hardware systems. Built with Electron.js and React, it provides real-time equipment monitoring, automated member check-ins, billing management, and comprehensive analytics dashboard.",
+        "category": "Desktop Application",
+        "highlights": [
+          "Hardware Integration",
+          "Real-time Monitoring",
+          "Automated Billing",
+          "Member Management"
+        ]
+      },
+      "wildOasisManagement": {
+        "title": "Wild Oasis Management",
+        "description": "Modern dashboard for cabin rental management with booking system, guest management, and analytics. Features real-time availability and automated notifications.",
+        "fullDescription": "A sophisticated cabin rental management system featuring an intuitive dashboard for property managers. Includes comprehensive booking management, guest profiles, payment processing, and detailed analytics with beautiful data visualizations.",
+        "category": "Web Application",
+        "highlights": [
+          "Booking Management",
+          "Guest Analytics",
+          "Payment Integration",
+          "Real-time Updates"
+        ]
+      },
+      "wildOasisWebsite": {
+        "title": "Wild Oasis Client Website",
+        "description": "Modern website for Wild Oasis to reserve a cabin, with account management features.",
+        "fullDescription": "Server-side rendered modern website for Wild Oasis cabin reservations. Includes comprehensive booking management and guest profile features.",
+        "category": "Web Application",
+        "highlights": [
+          "Booking Management",
+          "Guest Analytics",
+          "Real-time Updates"
+        ]
+      },
+      "allmaxsport": {
+        "title": "Allmaxsport E-commerce",
+        "description": "Full-featured e-commerce platform specialized in gym equipment with advanced filtering, wishlist, and secure payment processing.",
+        "fullDescription": "A comprehensive e-commerce solution tailored for fitness equipment sales. Features advanced product filtering, user reviews, wishlist functionality, secure payment processing, and an admin panel for inventory management.",
+        "category": "E-commerce",
+        "highlights": [
+          "Team Work",
+          "Product Catalog",
+          "Payment Processing",
+          "User Reviews",
+          "Inventory Management"
+        ]
+      },
+      "pizzaExpress": {
+        "title": "Pizza Express",
+        "description": "A fast, delightful pizza ordering app with a location-based delivery map, built with React and Tailwind CSS.",
+        "fullDescription": "Pizza Express is a lean, responsive pizza ordering platform that leverages a location-aware map to streamline delivery. It uses React for the UI and Tailwind CSS for styling, featuring an interactive map to select delivery areas, real-time distance estimates, and an intuitive checkout flow.",
+        "category": "Food & Beverage",
+        "highlights": [
+          "Location-based delivery map",
+          "Real-time distance estimation",
+          "Intuitive cart & checkout",
+          "Responsive UI",
+          "Lightweight & fast"
+        ]
+      }
+    }
   }
 }
