@@ -9,7 +9,7 @@ import ResumeActions from "./ResumeActions";
 function Resume() {
   return (
     <div className="mx-auto max-w-7xl">
-      <ResumeActions />
+      {/* <ResumeActions /> */}
       <ResumeHeader />
       <ResumeAbout />
       <ResumeSkills />
