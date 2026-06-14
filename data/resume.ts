@@ -9,7 +9,7 @@ export const resumeAbout: { paragraphs: Localized[]; badges: Localized[] } = {
   paragraphs: [
     {
       en: "Full-stack developer with 3+ years building modern, user-facing products. I'm strongest on the frontend with React, Next.js and TypeScript, and comfortable across the backend — Go, Node.js, Python/Django — with PostgreSQL, Redis and MongoDB behind them.",
-      fa: "توسعه‌دهنده فول‌استک با بیش از سه سال تجربه در ساخت محصولات مدرن و کاربرمحور. قوی‌ترین نقطه‌ام فرانت‌اند با React، Next.js و TypeScript است و در بک‌اند هم راحتم — Go، Node.js، Python/Django — با PostgreSQL، Redis و MongoDB در پشت آن‌ها.",
+      fa: "توسعه‌دهنده فول‌استک با بیش از سه سال تجربه در ساخت محصولات مدرن و کاربرمحور. قوی‌ترین نقطه‌ام فرانت‌اند با React، Next.js و TypeScript است و در بک‌اند هم راحتم — Go، .js،  با PostgreSQL، Redis و MongoDB در پشت آن‌ها.",
     },
     {
       en: "I've shipped a hardware-integrated gym management desktop app, a cabin-rental management system, and a live fitness e-commerce store — and I'm currently building a Go + React operations platform for an audio store with ~15 modular tools.",

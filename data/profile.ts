@@ -15,7 +15,7 @@ export const profile = {
   roles: [
     { en: "Full-Stack Developer", fa: "توسعه‌دهنده فول‌استک" },
     { en: "Frontend — React & Next.js", fa: "فرانت‌اند — React و Next.js" },
-    { en: "Backend — Go & Node.js", fa: "بک‌اند — Go " },
+    { en: "Backend — Go", fa: "بک‌اند — Go " },
     { en: "I build with AI, daily", fa: "هر روز با AI می‌سازم" },
   ] as Localized[],
 
