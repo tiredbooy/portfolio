@@ -1,241 +1,118 @@
 "use client";
+
 import { motion } from "framer-motion";
-import {
-  Clock,
-  Github,
-  Linkedin,
-  Mail,
-  MapPin,
-  MessageSquare,
-  Phone,
-  Twitter
-} from "lucide-react";
+import { MessageSquare } from "lucide-react";
 import { FC } from "react";
-import { RiWhatsappLine } from "react-icons/ri";
 import ContactForm from "./ContactForm";
-
-type ContactInfo = {
-  icon: React.ElementType;
-  title: string | number;
-  value: string | number;
-  description: string;
-  href?: string;
-  color: string;
-};
-
-type SocialLink = {
-  icon: React.ElementType;
-  name: string;
-  href?: string;
-  color: string;
-};
-
-const contactInfo: ContactInfo[] = [
-  {
-    icon: Mail,
-    title: "Email",
-    value: "mahdykazemyo1i2@gmail",
-    description: "Send me an email anytime",
-    href: "mailto:mahdykazemyo1i2@gmail",
-    color: "text-primary",
-  },
-  {
-    icon: RiWhatsappLine,
-    title: "Whatsapp",
-    value: "09393591452",
-    description: "Send me an Message anytime",
-    href: "https://api.whatsapp.com/send/?phone=%2B989393591452&text&type=phone_number&app_absent=0",
-    color: "text-primary",
-  },
-  {
-    icon: Phone,
-    title: "Phone",
-    value: "+98 9393591452",
-    description: "Call me for urgent inquiries",
-    href: "tel:+0989393591452",
-    color: "text-secondary",
-  },
-  {
-    icon: MapPin,
-    title: "Location",
-    value: "IRAN, Tehran",
-    description: "Available for remote work",
-    color: "text-accent",
-  },
-  {
-    icon: Clock,
-    title: "Response Time",
-    value: "Within 24 hours",
-    description: "I'll get back to you soon",
-    color: "text-success",
-  },
-];
-
-const socialLinks: SocialLink[] = [
-  {
-    icon: Github,
-    name: "GitHub",
-    href: "https://github.com/tiredbooy",
-    color: "hover:text-text-primary",
-  },
-  {
-    icon: Linkedin,
-    name: "LinkedIn",
-    href: "https://linkedin.com/in/mahdikazemi",
-    color: "hover:text-primary",
-  },
-  {
-    icon: Twitter,
-    name: "Twitter",
-    href: "https://twitter.com/mahdikazemi",
-    color: "hover:text-accent",
-  },
-];
+import { contactChannels, contactSocials, profile } from "@/data/profile";
+import { content } from "@/data/content";
+import { useLocalized } from "@/app/[locale]/hooks/useLocalized";
 
 const Contact: FC = () => {
+  const { t } = useLocalized();
+
   return (
-    <section id="contact" className="relative px-6 py-20 overflow-hidden">
-      <div className="container relative z-10 mx-auto">
+    <section id="contact" className="relative overflow-hidden px-5 py-24 md:px-8">
+      <div className="container relative z-10 mx-auto max-w-6xl">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mb-16 text-center"
+          transition={{ duration: 0.6 }}
+          className="mb-14 text-center"
         >
-          <h2 className="mb-6 text-5xl font-bold text-gradient">
-            Let&apos;s Work Together
+          <span className="inline-block rounded-full glass px-4 py-1 text-sm font-medium text-primary">
+            {t(content.contact.eyebrow)}
+          </span>
+          <h2 className="mt-4 text-4xl font-bold tracking-tight text-text-primary sm:text-5xl">
+            {t(content.contact.title)}
           </h2>
-          <p className="mx-auto mb-8 text-xl text-text-secondary">
-            Have a project in mind? I&apos;d love to hear about it. Send me a
-            message and let&apos;s create something amazing together.
+          <p className="mx-auto mt-4 max-w-2xl text-base text-text-secondary md:text-lg">
+            {t(content.contact.subtitle)}
           </p>
         </motion.div>
 
-        <div className="grid items-start gap-12 px-2 lg:grid-cols-2">
-          {/* Contact Information */}
+        <div className="grid items-start gap-8 lg:grid-cols-2">
+          {/* Left: info */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="space-y-8"
+            transition={{ duration: 0.6 }}
+            className="space-y-4"
           >
-            {/* Contact Info Cards */}
-            <div className="grid gap-6">
-              {contactInfo.map((info, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, duration: 0.6 }}
-                  whileHover={{ x: 10, transition: { duration: 0.2 } }}
-                  className="mx-auto w-fit md:w-full group"
-                >
-                  {info.href ? (
-                    <a
-                      href={info.href}
-                      className="flex items-center gap-6 p-6 transition-all duration-300 cursor-pointer glass-effect rounded-2xl hover:bg-surface-elevated"
-                    >
-                      <div
-                        className={`w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center group-hover:scale-110 transition-transform`}
-                      >
-                        <info.icon className={`w-6 h-6 ${info.color}`} />
-                      </div>
-                      <div>
-                        <h3 className="mb-1 text-lg font-semibold text-text-primary">
-                          {info.title}
-                        </h3>
-                        <p className="mb-1 font-medium text-text-secondary">
-                          {info.value}
-                        </p>
-                        <p className="text-sm text-text-tertiary">
-                          {info.description}
-                        </p>
-                      </div>
-                    </a>
-                  ) : (
-                    <div className="flex items-center gap-6 p-6 mx-auto glass-effect rounded-2xl">
-                      <div
-                        className={`w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center`}
-                      >
-                        <info.icon className={`w-6 h-6 ${info.color}`} />
-                      </div>
-                      <div>
-                        <h3 className="mb-1 text-lg font-semibold text-text-primary">
-                          {info.title}
-                        </h3>
-                        <p className="mb-1 font-medium text-text-secondary">
-                          {info.value}
-                        </p>
-                        <p className="text-sm text-text-tertiary">
-                          {info.description}
-                        </p>
-                      </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {contactChannels.map((info, i) => {
+                const inner = (
+                  <>
+                    <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-primary/15 to-secondary/15 transition-transform group-hover:scale-110">
+                      <info.icon className={`h-5 w-5 ${info.accent}`} />
                     </div>
-                  )}
-                </motion.div>
-              ))}
+                    <div className="min-w-0">
+                      <h3 className="text-sm font-semibold text-text-primary">{t(info.title)}</h3>
+                      <p className="truncate text-sm text-text-secondary" dir="ltr">{info.value}</p>
+                      <p className="mt-0.5 text-xs text-text-tertiary">{t(info.description)}</p>
+                    </div>
+                  </>
+                );
+                const cls = "group flex items-center gap-3 rounded-2xl glass p-4 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md";
+                return (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.07, duration: 0.45 }}
+                    className={i === contactChannels.length - 1 ? "sm:col-span-2" : ""}
+                  >
+                    {info.href ? (
+                      <a href={info.href} className={cls}>{inner}</a>
+                    ) : (
+                      <div className={cls}>{inner}</div>
+                    )}
+                  </motion.div>
+                );
+              })}
             </div>
 
-            {/* Social Links */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="p-6 glass-effect rounded-2xl"
-            >
-              <h3 className="flex items-center gap-2 mb-4 text-lg font-semibold text-text-primary">
-                <MessageSquare className="w-5 h-5 text-accent" />
-                Connect With Me
+            {/* Socials */}
+            <div className="rounded-2xl glass p-5">
+              <h3 className="mb-4 flex items-center gap-2 font-semibold text-text-primary">
+                <MessageSquare className="h-5 w-5 text-accent" />
+                {t(content.contact.connect)}
               </h3>
-              <div className="flex gap-4">
-                {socialLinks.map((social, index) => (
-                  <motion.a
-                    key={index}
-                    href={social.href}
+              <div className="flex gap-3">
+                {contactSocials.map((s) => (
+                  <a
+                    key={s.name}
+                    href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ y: -3, scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`w-12 h-12 rounded-xl glass-effect flex items-center justify-center text-text-tertiary transition-all duration-300 ${social.color}`}
+                    aria-label={s.name}
+                    className="grid h-11 w-11 place-items-center rounded-xl glass text-text-tertiary transition-all hover:-translate-y-1 hover:text-primary"
                   >
-                    <social.icon className="w-5 h-5" />
-                  </motion.a>
+                    <s.icon className="h-5 w-5" />
+                  </a>
                 ))}
               </div>
-              <p className="mt-4 text-sm text-text-tertiary">
-                Follow me for updates on my latest projects and tech insights
-              </p>
-            </motion.div>
+            </div>
 
-            {/* Availability Status */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-              className="p-6 mx-auto border glass-effect rounded-2xl border-success/20"
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-3 h-3 rounded-full bg-success animate-pulse"></div>
-                <h3 className="text-lg font-semibold text-success">
-                  Available for Work
-                </h3>
+            {/* Availability */}
+            <div className="rounded-2xl glass border border-success/20 p-5">
+              <div className="mb-2 flex items-center gap-3">
+                <span className="relative flex h-3 w-3">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success opacity-75" />
+                  <span className="relative inline-flex h-3 w-3 rounded-full bg-success" />
+                </span>
+                <h3 className="font-semibold text-success">{t(profile.availability.badge)}</h3>
               </div>
-              <p className="mb-2 text-text-secondary">
-                Currently accepting new projects and collaborations
-              </p>
-              <p className="text-sm text-text-tertiary">
-                Let&apos;s discuss your ideas and bring them to life!
-              </p>
-            </motion.div>
+              <p className="text-sm text-text-secondary">{t(profile.availability.description)}</p>
+              <p className="mt-1 text-sm text-text-tertiary">{t(profile.availability.callToAction)}</p>
+            </div>
           </motion.div>
 
-          {/* Contact Form */}
+          {/* Right: form */}
           <ContactForm />
         </div>
       </div>

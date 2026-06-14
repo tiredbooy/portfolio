@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(curl -s http://localhost:3000/en)",
+      "Bash(curl -s http://localhost:3000/fa)",
+      "Bash(curl -s http://localhost:3000/en/resume)",
+      "Bash(curl -s -o /dev/null -w \"en:%{http_code} \" http://localhost:3000/en)",
+      "Bash(curl -s -o /dev/null -w \"fa:%{http_code} \" http://localhost:3000/fa)",
+      "Bash(curl -s -o /dev/null -w \"resume:%{http_code}\\\\n\" http://localhost:3000/en/resume)",
+      "Bash(curl -s -o /dev/null -w \"en:%{http_code} fa-redirect-check\\\\n\" http://localhost:3001/en)",
+      "Bash(curl -s http://localhost:3001/en)",
+      "Bash(curl -s http://localhost:3001/fa)",
+      "Bash(curl -s http://localhost:3001/en/resume)",
+      "Bash(pkill -f \"next dev\")",
+      "Bash(pkill -f \"next-server\")"
+    ]
+  }
+}

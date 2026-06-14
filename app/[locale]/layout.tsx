@@ -5,6 +5,7 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import Script from "next/script";
+import Providers from "./_components/Providers";
 
 // Configure fonts with optimal settings
 const vazirmatn = Vazirmatn({
@@ -24,19 +25,22 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://tiredboy.netlify.app"), // Replace with your actual domain
   title: {
-    default: "Mahdi Kazemi - Front-End & Desktop App Developer",
+    default: "Mahdi Kazemi — Full-Stack Developer",
     template: "%s | Mahdi Kazemi",
   },
   description:
-    "Experienced Front-End & Desktop App Developer specializing in React, Next.js, and modern web technologies. Crafting immersive, performant digital experiences with clean code and stunning design.",
+    "Full-stack developer building end to end — React & Next.js on the front, Go, Node.js, PostgreSQL and Redis behind. I ship real products and build alongside AI tools like Claude Code.",
   keywords: [
     "Mahdi Kazemi",
+    "Full-Stack Developer",
     "Front-End Developer",
-    "Desktop App Developer",
+    "Backend Developer",
+    "Go Developer",
+    "Golang",
     "React Developer",
     "Next.js Developer",
-    "Web Developer",
-    "JavaScript Developer",
+    "PostgreSQL",
+    "Redis",
     "TypeScript Developer",
     "Portfolio",
   ],
@@ -52,9 +56,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://tiredboy.netlify.app",
-    title: "Mahdi Kazemi - Front-End & Desktop App Developer",
+    title: "Mahdi Kazemi — Full-Stack Developer",
     description:
-      "Crafting immersive digital experiences with modern web technologies",
+      "Full-stack developer shipping real products end to end — React, Next.js, Go, PostgreSQL & Redis.",
     siteName: "Mahdi Kazemi Portfolio",
     images: [
       {
@@ -67,9 +71,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mahdi Kazemi - Front-End & Desktop App Developer",
+    title: "Mahdi Kazemi — Full-Stack Developer",
     description:
-      "Crafting immersive digital experiences with modern web technologies",
+      "Full-stack developer shipping real products end to end — React, Next.js, Go, PostgreSQL & Redis.",
     images: ["/og-image.png"], // Add your Twitter image
     creator: "@tiredboy", // Add your Twitter handle
   },
@@ -125,19 +129,22 @@ export default async function RootLayout({
     notFound();
   }
 
+  const isFa = locale === "fa";
+
   return (
     <html
       lang={locale}
-      className={`${
-        locale === "en" ? inter.className : vazirmatn.className
-      } light`}
+      dir={isFa ? "rtl" : "ltr"}
+      className={`${inter.variable} ${vazirmatn.variable}`}
       suppressHydrationWarning
     >
       <body
-        className={`${inter.className} gradient-hero antialiased min-h-screen`}
+        className={`${isFa ? "font-fa" : "font-sans"} antialiased min-h-screen`}
         suppressHydrationWarning
       >
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <Providers>
+          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        </Providers>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-FGS0BPRBZB"
           strategy="afterInteractive"

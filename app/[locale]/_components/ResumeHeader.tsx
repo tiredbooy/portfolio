@@ -31,7 +31,7 @@ function ResumeHeader() {
                 مهدی کاظمی
               </h1>
               <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-primary">
-                توسعه دهنده فرانت اند
+                توسعه‌دهنده فول‌استک
               </h2>
             </div>
 
