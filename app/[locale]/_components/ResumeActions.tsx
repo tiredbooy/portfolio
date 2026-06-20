@@ -3,7 +3,7 @@ import { HiOutlinePrinter, HiOutlineDownload } from "react-icons/hi";
 
 function ResumeActions() {
   // Replace this with your actual Netlify URL after uploading
-  const resumePdfUrl = "https://tiredboy.netlify.app/en/resume.pdf";
+  const resumePdfUrl = "https://tiredbooy.ir/en/resume.pdf";
 
   const handlePrint = () => {
     // Open PDF in new window and trigger print

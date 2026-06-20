@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: "https://tiredboy.netlify.app",
+  siteUrl: "https://tiredbooy.ir",
   generateRobotsTxt: true,
   exclude: ['/admin', '/secret'],
 };

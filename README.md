@@ -1,9 +1,9 @@
 # Portofilo
 
-[![Live Demo](https://img.shields.io/badge/demo-online-brightgreen)](https://tiredboy.netlify.app/)
+[![Live Demo](https://img.shields.io/badge/demo-online-brightgreen)](https://tiredbooy.ir/)
 
 This is the source code for my personal portfolio website, built using Next.js.  
-You can view the live site here: **https://tiredboy.netlify.app/**
+You can view the live site here: **https://tiredbooy.ir/**
 
 ---
 
@@ -31,7 +31,7 @@ This repository contains the code for my portfolio website, where I showcase pro
 ## Live Demo
 
 Check out the deployed version:  
-➡️ **https://tiredboy.netlify.app/**
+➡️ **https://tiredbooy.ir/**
 
 ---
 

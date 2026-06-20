@@ -81,7 +81,7 @@ function ResumeHeader() {
               </a>
 
               <a
-                href="https://tiredboy.netlify.app"
+                href="https://tiredbooy.ir"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-surface border border-border flex items-center justify-center hover:border-primary hover:bg-surface-elevated transition-all hover:shadow-glow group"

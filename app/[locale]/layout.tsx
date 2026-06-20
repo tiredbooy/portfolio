@@ -23,7 +23,7 @@ const inter = Inter({
 
 // Enhanced metadata for better SEO
 export const metadata: Metadata = {
-  metadataBase: new URL("https://tiredboy.netlify.app"), // Replace with your actual domain
+  metadataBase: new URL("https://tiredbooy.ir"), // Replace with your actual domain
   title: {
     default: "Mahdi Kazemi — Full-Stack Developer",
     template: "%s | Mahdi Kazemi",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://tiredboy.netlify.app",
+    url: "https://tiredbooy.ir",
     title: "Mahdi Kazemi — Full-Stack Developer",
     description:
       "Full-stack developer shipping real products end to end — React, Next.js, Go, PostgreSQL & Redis.",
@@ -94,7 +94,7 @@ export const metadata: Metadata = {
     // bing: "bing-verification-code",
   },
   alternates: {
-    canonical: "https://tiredboy.netlify.app",
+    canonical: "https://tiredbooy.ir",
   },
   category: "technology",
 };
