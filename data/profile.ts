@@ -86,9 +86,9 @@ export const contactChannels: ContactChannel[] = [
   {
     icon: Phone,
     title: { en: "Phone", fa: "تلفن" },
-    value: "+98 939 359 1452",
+    value: "+98 900 158 3000",
     description: { en: "For when it's urgent", fa: "برای مواقع فوری" },
-    href: "tel:+989393591452",
+    href: "tel:+989001583000",
     accent: "text-secondary",
   },
   {
